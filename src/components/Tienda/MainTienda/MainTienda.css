@@ -1,0 +1,50 @@
+/* MainTienda.css */
+.main-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background: #1e1e1e;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #1e0b61;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.select-container {
+  margin: 20px auto;
+  width: 50%;
+}
+
+.text-field {
+  width: 250px;
+  background: #333;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #444;
+}
+
+.add-button {
+  background: #4f15ad !important;
+  color: #121212 !important;
+  padding: 10px 20px !important;
+  font-weight: bold !important;
+  transition: 0.3s;
+}
+
+.add-button:hover {
+  background: #0092e6 !important;
+}
+
+.divider {
+  margin: 30px 0;
+  background: #444;
+  height: 2px;
+  border-radius: 5px;
+}

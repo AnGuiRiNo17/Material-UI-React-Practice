@@ -1,0 +1,54 @@
+/* Objectos_Tienda.css */
+.store-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #2d0e9c;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.table-container {
+  margin-top: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.MuiTable-root {
+  background: #a2d0d6;
+}
+
+.MuiTableHead-root {
+  background: #21087c;
+}
+
+.MuiTableCell-head {
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.MuiTableCell-body {
+  color: #333 !important;
+}
+
+.select-box {
+  margin: 20px auto;
+  width: 50%;
+}
+
+.stock-button, .sold-button {
+  background: #181f83 !important;
+  color: white !important;
+  font-weight: bold !important;
+  transition: 0.3s;
+}
+
+.stock-button:hover, .sold-button:hover {
+  background: #073764 !important;
+}
