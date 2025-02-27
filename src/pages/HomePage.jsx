@@ -70,7 +70,7 @@ export default function HomePage() {
         spacing={2}
       >
         <Grid xs={12} md={8} lg={6} display="flex" justifyContent="center">
-          <Card variant="outlined" sx={{ padding: 2, borderRadius: "20px" }}>
+          <Card sx={{ padding: 2, borderRadius: "20px", boxShadow: "none" }}>
             <Paper
               component="form"
               onSubmit={(e) => e.preventDefault()}
