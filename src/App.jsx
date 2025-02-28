@@ -1,7 +1,7 @@
 import * as React from 'react';
 // import MainTienda from './components/Tienda/MainTienda/MainTienda.jsx';
 import ComponenteEncabezado from './ComponenteEncabezado.jsx'
-import HomePage from './pages/HomePage.jsx';
+import AppRoutes from './mipagina/AppRoutes.jsx';
 // import ListaVerduras from './components/Productos/ListaVerduras.jsx';
 
 export default function App() {
@@ -10,8 +10,8 @@ export default function App() {
     <>
     {/* <MainTienda/> */}
       <ComponenteEncabezado/>
-      {/* <ListaVerduras/> */}
-      <HomePage/>
+
+      <AppRoutes/>
     </>
 );
 }
