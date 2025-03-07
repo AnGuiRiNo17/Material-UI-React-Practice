@@ -5,6 +5,7 @@ import PageHome from './home/pageHome'
 import PageContact from './contact/pageContact'
 import PageAbout from './about/pageAbout'
 import HomePage from '../pages/HomePage'
+import NotFound from './NotFound'
 
 
 export default function AppRoutes () {
@@ -19,7 +20,8 @@ export default function AppRoutes () {
             <Route path='/about' element={<PageAbout/>} />
 
             <Route path='/contact' element={<PageContact/>} />
-
+            
+            <Route path='*' element={<NotFound/>}/>
         </Routes>
     )
 }
