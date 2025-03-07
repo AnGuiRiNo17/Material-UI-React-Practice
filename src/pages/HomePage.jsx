@@ -3,7 +3,6 @@ import { Paper, InputBase, IconButton, Card } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import SearchIcon from "@mui/icons-material/Search";
 import ContenidoComida from "./ContenidoComida";
-import "./HomePage.css";
 
 export default function HomePage() {
   const [textoBuscar, setTextoBuscar] = useState("");
