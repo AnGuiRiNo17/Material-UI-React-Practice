@@ -11,8 +11,11 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import React from "react";
 import Grid from "@mui/material/Grid2";
+import { useNavigate } from "react-router-dom"; // Importa useNavigate
 
 export default function ContenidoComida({ data }) {
+  const navigate = useNavigate();
+
   console.log("Datos desde padre:", data);
 
   return (
@@ -33,7 +36,7 @@ export default function ContenidoComida({ data }) {
       ) : (
         <Grid container padding={4} spacing={3} justifyContent="center">
           {data.map((recetadata, index) => (
-              <Grid key={index} size={{ xs: 6, md: 4 }}>
+            <Grid key={index} size={{ xs: 6, md: 4 }}>
               <Paper sx={{ padding: 2, borderRadius: "10px" }}>
                 <CardMedia
                   component="img"
@@ -109,6 +112,18 @@ export default function ContenidoComida({ data }) {
                       📽️ Ver Receta en YouTube
                     </Button>
                   )}
+
+                  {/* Botón "Ver más" para redirigir a DetalleComida */}
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() =>
+                      navigate(`/detalle/${recetadata.idMeal}`)
+                    }
+                    sx={{ marginTop: "15px", width: "100%", fontSize: "16px" }}
+                  >
+                    Ver más
+                  </Button>
                 </CardContent>
               </Paper>
             </Grid>

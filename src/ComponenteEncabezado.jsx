@@ -126,6 +126,9 @@ function ComponenteEncabezado() {
             <Button component={Link} to='/contact' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
                Contact
             </Button>
+            <Button component={Link} to='/dash' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
+               Dash
+            </Button>
             
           </Box>
           <Box sx={{ flexGrow: 0 }}>
