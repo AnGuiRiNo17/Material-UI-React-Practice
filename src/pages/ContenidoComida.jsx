@@ -11,33 +11,38 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import React from "react";
 import Grid from "@mui/material/Grid2";
-import { useNavigate } from "react-router-dom"; // Importa useNavigate
+import { Link } from "react-router-dom";
 
 export default function ContenidoComida({ data }) {
-  const navigate = useNavigate();
-
   console.log("Datos desde padre:", data);
 
   return (
     <div>
+      {/* Si no hay datos, muestra un mensaje indicando que no se encontraron resultados */}
       {!data || data.length === 0 ? (
-        <Grid item xs={12}>
+        <Grid container padding={4} size={{ xs: 6, md: 4 }} spacing={3} justifyContent="center">
           <Paper
-            sx={{ 
-              padding: 2, 
-              textAlign: "center", 
-              backgroundColor: "#f8d7da", 
-              color: "#721c24" 
+            sx={{
+              p: 1,
+              textAlign: "center",
+              backgroundColor: "#fdecea",
+              color: "#b71c1c",
+              borderRadius: 1,
+              boxShadow: "none",
             }}
           >
-            No se encontraron resultados
+            <Typography variant="body2" sx={{ fontSize: "30px" }}>
+              No se encontraron resultados
+            </Typography>
           </Paper>
         </Grid>
       ) : (
+        // Si hay datos, se mapea cada receta y se muestra en una tarjeta
         <Grid container padding={4} spacing={3} justifyContent="center">
           {data.map((recetadata, index) => (
             <Grid key={index} size={{ xs: 6, md: 4 }}>
               <Paper sx={{ padding: 2, borderRadius: "10px" }}>
+                {/* Imagen representativa de la receta */}
                 <CardMedia
                   component="img"
                   height="250"
@@ -46,33 +51,33 @@ export default function ContenidoComida({ data }) {
                   sx={{ borderRadius: "10px" }}
                 />
                 <CardContent>
-                  <Typography
-                    variant="h5"
-                    sx={{ fontWeight: "bold", textAlign: "center" }}
-                  >
+                  {/* Nombre de la receta */}
+                  <Typography variant="h5" sx={{ fontWeight: "bold", textAlign: "center", fontSize: "40px" }}>
                     {recetadata.strMeal}
                   </Typography>
-                  <Typography
-                    variant="body1"
-                    color="textSecondary"
-                    sx={{ textAlign: "center", marginBottom: "10px" }}
-                  >
+
+                  {/* Categoría y Origen de la receta */}
+                  <Typography variant="body1" color="textSecondary" sx={{ textAlign: "center", marginBottom: "10px", fontSize: "20px" }}>
                     <strong>Categoría:</strong> {recetadata.strCategory} |{" "}
                     <strong>Origen:</strong> {recetadata.strArea}
                   </Typography>
 
-                  {/* Acordeón para Ingredientes */}
+                  {/* Identificador único de la receta */}
+                  <Typography variant="body1" color="textSecondary" sx={{ textAlign: "center", marginBottom: "10px", fontSize: "20px" }}>
+                    <strong>Id_Comida:</strong> {recetadata.idMeal}
+                  </Typography>
+
+                  {/* Acordeón para mostrar la lista de ingredientes */}
                   <Accordion>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                      <Typography component="span">
+                      <Typography component="span" sx={{ fontSize: "20px" }}>
                         <strong>Ingredientes</strong>
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                      <ul style={{ paddingLeft: "20px" }}>
+                      <ul style={{ paddingLeft: "20px", fontSize: "16px" }}>
                         {Array.from({ length: 20 }).map((_, i) => {
-                          const ingrediente =
-                            recetadata[`strIngredient${i + 1}`];
+                          const ingrediente = recetadata[`strIngredient${i + 1}`];
                           const medida = recetadata[`strMeasure${i + 1}`];
                           return ingrediente ? (
                             <li key={i}>
@@ -84,43 +89,40 @@ export default function ContenidoComida({ data }) {
                     </AccordionDetails>
                   </Accordion>
 
-                  {/* Acordeón para Instrucciones */}
+                  {/* Acordeón para mostrar las instrucciones de preparación */}
                   <Accordion>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                      <Typography component="span">
+                      <Typography component="span" sx={{ fontSize: "20px" }}>
                         <strong>Cómo preparar</strong>
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                      <Typography
-                        variant="body2"
-                        sx={{ textAlign: "justify", whiteSpace: "pre-line" }}
-                      >
+                      <Typography variant="body2" sx={{ textAlign: "justify", whiteSpace: "pre-line", fontSize: "16px" }}>
                         {recetadata.strInstructions}
                       </Typography>
                     </AccordionDetails>
                   </Accordion>
 
+                  {/* Botón para abrir la receta en YouTube (si existe el enlace) */}
                   {recetadata.strYoutube && (
                     <Button
                       variant="contained"
                       color="secondary"
                       href={recetadata.strYoutube}
                       target="_blank"
-                      sx={{ marginTop: "15px", width: "100%", fontSize: "16px" }}
+                      sx={{ marginTop: "15px", width: "100%", fontSize: "20px" }}
                     >
                       📽️ Ver Receta en YouTube
                     </Button>
                   )}
 
-                  {/* Botón "Ver más" para redirigir a DetalleComida */}
+                  {/* Botón "Ver más" que redirige a la página de detalles de la receta */}
                   <Button
                     variant="contained"
                     color="primary"
-                    onClick={() =>
-                      navigate(`/detalle/${recetadata.idMeal}`)
-                    }
-                    sx={{ marginTop: "15px", width: "100%", fontSize: "16px" }}
+                    LinkComponent={Link}
+                    to={`/recetas/${recetadata.idMeal}`}
+                    sx={{ marginTop: "15px", width: "100%", fontSize: "20px" }}
                   >
                     Ver más
                   </Button>

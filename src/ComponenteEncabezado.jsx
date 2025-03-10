@@ -37,7 +37,7 @@ function ComponenteEncabezado() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: 'black' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -49,14 +49,14 @@ function ComponenteEncabezado() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
+              fontFamily: 'sans-serif',
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              fontWeight: 'bold',
             }}
           >
-            LOGO
+            Cesar Sanchez
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -114,27 +114,33 @@ function ComponenteEncabezado() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             
-            <Button component={Link} to='/' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
-               Home
+            <Button component={Link} to='/' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block', fontSize: '16px'}} >
+               Inicio
             </Button>
-            <Button component={Link} to='/recetas' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
-               recetas
+            <Button component={Link} to='/recetas' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block', fontSize: '16px'}}>
+               Recetas
             </Button>
-            <Button component={Link} to='/about' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
-               About
+            <Button component={Link} to='/about' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block' , fontSize: '16px'}}>
+               Acerca De
             </Button>
-            <Button component={Link} to='/contact' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
-               Contact
+            <Button component={Link} to='/contact' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block' , fontSize: '16px'}}>
+               Conctactos
             </Button>
-            <Button component={Link} to='/dash' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
+            <Button component={Link} to='/dash' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block' , fontSize: '16px'}}>
                Dash
+            </Button>
+            <Button component={Link} to='/promedio' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block' , fontSize: '16px'}}>
+               Alumnos Promedio
+            </Button>
+            <Button component={Link} to='/tienda' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block' , fontSize: '16px'}}>
+               Tienda
             </Button>
             
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src="https://avatars.githubusercontent.com/u/181114153?v=4" />
               </IconButton>
             </Tooltip>
             <Menu
