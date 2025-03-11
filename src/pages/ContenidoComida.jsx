@@ -52,7 +52,7 @@ export default function ContenidoComida({ data }) {
                 />
                 <CardContent>
                   {/* Nombre de la receta */}
-                  <Typography variant="h5" sx={{ fontWeight: "bold", textAlign: "center", fontSize: "40px" }}>
+                  <Typography variant="h5" sx={{ fontWeight: "bold", textAlign: "center", fontSize: "30px" }}>
                     {recetadata.strMeal}
                   </Typography>
 

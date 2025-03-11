@@ -63,19 +63,19 @@ export default function DetalleComida() {
           />
           <CardContent>
             {/* Información de categoría y origen de la comida */}
-            <Typography variant="body1" sx={{ marginBottom: 2, textAlign: "center", fontSize: "30px" }}>
+            <Typography variant="body1" sx={{ marginBottom: 2, textAlign: "center", fontSize: "20px" }}>
               <strong>Categoría:</strong> {meal.strCategory} | <strong>Origen:</strong> {meal.strArea}
             </Typography>
 
             {/* Muestra el identificador único de la comida */}
-            <Typography variant="body1" sx={{ marginBottom: 2, textAlign: "center", fontSize: "30px" }}>
+            <Typography variant="body1" sx={{ marginBottom: 2, textAlign: "center", fontSize: "20px" }}>
               <strong>Id_Comida:</strong> {id}
             </Typography>
 
             {/* Acordeón que lista los ingredientes de la receta */}
             <Accordion>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography component="span" sx={{ fontSize: "30px" }}>
+                <Typography component="span" sx={{ fontSize: "20px" }}>
                   <strong>Ingredientes</strong>
                 </Typography>
               </AccordionSummary>
@@ -98,7 +98,7 @@ export default function DetalleComida() {
             {/* Acordeón que muestra las instrucciones para preparar la comida */}
             <Accordion>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography component="span"  sx={{ fontSize: "30px" }} >
+                <Typography component="span"  sx={{ fontSize: "20px" }} >
                   <strong>Instrucciones</strong>
                 </Typography>
               </AccordionSummary>
