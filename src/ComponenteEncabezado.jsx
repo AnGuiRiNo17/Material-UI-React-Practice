@@ -56,7 +56,7 @@ function ComponenteEncabezado() {
               fontWeight: 'bold',
             }}
           >
-            Cesar Sanchez
+            AnGuiRiNo17
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -125,22 +125,13 @@ function ComponenteEncabezado() {
             </Button>
             <Button component={Link} to='/contact' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block' , fontSize: '16px'}}>
                Conctactos
-            </Button>
-            <Button component={Link} to='/dash' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block' , fontSize: '16px'}}>
-               Dash
-            </Button>
-            <Button component={Link} to='/promedio' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block' , fontSize: '16px'}}>
-               Alumnos Promedio
-            </Button>
-            <Button component={Link} to='/tienda' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block' , fontSize: '16px'}}>
-               Tienda
-            </Button>
+            </Button>               
             
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="https://avatars.githubusercontent.com/u/181114153?v=4" />
+                <Avatar alt="Remy Sharp" src="https://avatars.githubusercontent.com/u/181233097?s=96&v=4" />
               </IconButton>
             </Tooltip>
             <Menu

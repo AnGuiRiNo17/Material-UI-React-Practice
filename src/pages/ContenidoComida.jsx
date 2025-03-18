@@ -31,7 +31,7 @@ export default function ContenidoComida({ data }) {
               boxShadow: "none",
             }}
           >
-            <Typography variant="body2" sx={{ fontSize: "30px" }}>
+            <Typography variant="body2" sx={{ fontSize: "30px", fontFamily: "'Roboto', sans-serif" }}>
               No se encontraron resultados
             </Typography>
           </Paper>
@@ -52,30 +52,30 @@ export default function ContenidoComida({ data }) {
                 />
                 <CardContent>
                   {/* Nombre de la receta */}
-                  <Typography variant="h5" sx={{ fontWeight: "bold", textAlign: "center", fontSize: "30px" }}>
+                  <Typography variant="h5" sx={{ fontWeight: "bold", textAlign: "center", fontSize: "30px", fontFamily: "'Roboto', sans-serif" }}>
                     {recetadata.strMeal}
                   </Typography>
 
                   {/* Categoría y Origen de la receta */}
-                  <Typography variant="body1" color="textSecondary" sx={{ textAlign: "center", marginBottom: "10px", fontSize: "20px" }}>
+                  <Typography variant="body1" color="textSecondary" sx={{ textAlign: "center", marginBottom: "10px", fontSize: "20px", fontFamily: "'Roboto', sans-serif" }}>
                     <strong>Categoría:</strong> {recetadata.strCategory} |{" "}
                     <strong>Origen:</strong> {recetadata.strArea}
                   </Typography>
 
                   {/* Identificador único de la receta */}
-                  <Typography variant="body1" color="textSecondary" sx={{ textAlign: "center", marginBottom: "10px", fontSize: "20px" }}>
+                  <Typography variant="body1" color="textSecondary" sx={{ textAlign: "center", marginBottom: "10px", fontSize: "20px", fontFamily: "'Roboto', sans-serif" }}>
                     <strong>Id_Comida:</strong> {recetadata.idMeal}
                   </Typography>
 
                   {/* Acordeón para mostrar la lista de ingredientes */}
                   <Accordion>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                      <Typography component="span" sx={{ fontSize: "20px" }}>
+                      <Typography component="span" sx={{ fontSize: "20px", fontFamily: "'Roboto', sans-serif" }}>
                         <strong>Ingredientes</strong>
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                      <ul style={{ paddingLeft: "20px", fontSize: "16px" }}>
+                      <ul style={{ paddingLeft: "20px", fontSize: "16px", fontFamily: "'Roboto', sans-serif" }}>
                         {Array.from({ length: 20 }).map((_, i) => {
                           const ingrediente = recetadata[`strIngredient${i + 1}`];
                           const medida = recetadata[`strMeasure${i + 1}`];
@@ -92,12 +92,12 @@ export default function ContenidoComida({ data }) {
                   {/* Acordeón para mostrar las instrucciones de preparación */}
                   <Accordion>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                      <Typography component="span" sx={{ fontSize: "20px" }}>
+                      <Typography component="span" sx={{ fontSize: "20px", fontFamily: "'Roboto', sans-serif" }}>
                         <strong>Cómo preparar</strong>
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                      <Typography variant="body2" sx={{ textAlign: "justify", whiteSpace: "pre-line", fontSize: "16px" }}>
+                      <Typography variant="body2" sx={{ textAlign: "justify", whiteSpace: "pre-line", fontSize: "16px", fontFamily: "'Roboto', sans-serif" }}>
                         {recetadata.strInstructions}
                       </Typography>
                     </AccordionDetails>
@@ -110,9 +110,9 @@ export default function ContenidoComida({ data }) {
                       color="secondary"
                       href={recetadata.strYoutube}
                       target="_blank"
-                      sx={{ marginTop: "15px", width: "100%", fontSize: "20px" }}
+                      sx={{ marginTop: "15px", width: "100%", fontSize: "20px", fontFamily: "'Roboto', sans-serif" }}
                     >
-                      📽️ Ver Receta en YouTube
+                      Ver tutorial
                     </Button>
                   )}
 
@@ -122,7 +122,7 @@ export default function ContenidoComida({ data }) {
                     color="primary"
                     LinkComponent={Link}
                     to={`/recetas/${recetadata.idMeal}`}
-                    sx={{ marginTop: "15px", width: "100%", fontSize: "20px" }}
+                    sx={{ marginTop: "15px", width: "100%", fontSize: "20px", fontFamily: "'Roboto', sans-serif" }}
                   >
                     Ver más
                   </Button>

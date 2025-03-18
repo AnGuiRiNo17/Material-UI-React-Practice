@@ -60,7 +60,7 @@ export default function HomePage() {
   return (
     <div>
       <h1 style={{ textAlign: "center", color: "Green" }}>
-        Encuentra tu Platillo Favorito 🍟🍕
+        Encuentra tu Platillo Favorito
       </h1>
       <Grid
         container

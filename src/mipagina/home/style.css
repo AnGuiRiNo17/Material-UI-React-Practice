@@ -5,12 +5,12 @@
   align-items: center;
   height: 100vh; /* Ocupa toda la altura de la ventana */
   width: 100vw;  /* Ocupa todo el ancho de la ventana */
-  background-image: url('https://img.freepik.com/foto-gratis/vista-superior-tortilla-mexicana-espacio-copia_23-2148614430.jpg?semt=ais_hybrid');
+  background-image: url('https://th.bing.com/th/id/R.3f783eee640c36bba7e9b13b00178a50?rik=FSZPtD1b9JJYjA&pid=ImgRaw&r=0');
   background-size: cover; /* La imagen cubre toda la pantalla */
   background-position: center; /* Centra la imagen */
   background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
   position: relative;
-  filter: brightness(80%); /* Oscurecer ligeramente la imagen para mejor contraste */
+  filter: brightness(70%); /* Oscurecer ligeramente la imagen para mejor contraste */
 }
 
 /* Capa de superposición para mejorar la legibilidad del texto */
@@ -21,7 +21,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.4); /* Fondo oscuro semitransparente */
+  background: rgba(0, 0, 0, 0.3); /* Fondo oscuro semitransparente */
   z-index: -1; /* Aseguramos que la capa esté detrás del contenido */
 }
 
@@ -29,54 +29,57 @@
 .page-home-content {
   text-align: center;
   padding: 2rem 3rem;
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.15); /* Fondo blanco semitransparente con opacidad baja */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Sombra suave y moderna */
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1); /* Fondo blanco semitransparente */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra sutil */
   border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
-  max-width: 80%; /* Limitar el tamaño del contenedor */
+  max-width: 75%; /* Limitar el tamaño del contenedor */
 }
 
 /* Estilos del título */
 .page-home-content h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: #FF4500; /* Naranja brillante para llamar la atención */
-  letter-spacing: 2px; /* Espaciado entre letras para un toque futurista */
-  text-transform: uppercase; /* Mayúsculas para darle más protagonismo */
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6); /* Sombra en el texto para resaltar */
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+  color: white; /* Gris oscuro para un toque elegante */
+  letter-spacing: 1.5px;
+  text-transform: capitalize;
+  font-family: 'Roboto', sans-serif;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Sombra suave */
 }
 
 /* Estilo del párrafo */
 .page-home-content p {
-  font-size: 1.2rem;
-  color: #FFF; /* Blanco brillante para buen contraste */
-  margin-bottom: 2rem;
-  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 1.8rem;
+  line-height: 1.5;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Estilos del botón */
 .page-home-content button {
-  background-color: #FF6347; /* Rojo tomate vibrante */
+  background-color: #2d2d2d; /* Gris oscuro */
   color: white;
   padding: 0.75rem 2rem;
-  border-radius: 50px; /* Bordes redondeados para un diseño más limpio */
-  font-size: 1.25rem;
-  font-weight: 600;
+  border-radius: 30px; /* Bordes redondeados para un diseño más limpio */
+  font-size: 1.2rem;
+  font-weight: 400;
   border: none;
   transition: all 0.3s ease;
   cursor: pointer;
   outline: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
 }
 
 .page-home-content button:hover {
-  background-color: #FF4500; /* Naranja brillante al pasar el ratón */
+  background-color: #ff7f50; /* Naranja suave */
   transform: translateY(-3px); /* Efecto sutil de elevación */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
 }
 
 .page-home-content button:active {
   transform: translateY(1px); /* Efecto al hacer clic */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }

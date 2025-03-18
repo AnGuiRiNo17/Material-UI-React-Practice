@@ -7,8 +7,8 @@ const PageHome = () => {
     <div className="page-home">
       <div className="page-home-content">
         <h1>Bienvenido a Recetas Mundiales</h1>
-        <p>Encuentra las mejores recetas de cada pais</p>
-        <p>Desde los barrios mexicanos, hasta la elegancia de francia</p>
+        <p>Descubre las mejores recetas de cada país</p>
+        <p>Desde los barrios mexicanos hasta la elegancia de Francia</p>
         <Link to="/recetas">
           <button>Conocer más</button>
         </Link>
