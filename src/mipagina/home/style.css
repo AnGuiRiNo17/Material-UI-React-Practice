@@ -1,16 +1,30 @@
-/* Aseguramos que el div que contiene la imagen ocupe toda la pantalla */
+/* Contenedor principal */
 .page-home {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh; /* Ocupa toda la altura de la ventana */
   width: 100vw;  /* Ocupa todo el ancho de la ventana */
-  background-image: url('https://th.bing.com/th/id/R.3f783eee640c36bba7e9b13b00178a50?rik=FSZPtD1b9JJYjA&pid=ImgRaw&r=0');
-  background-size: cover; /* La imagen cubre toda la pantalla */
-  background-position: center; /* Centra la imagen */
-  background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
   position: relative;
-  filter: brightness(70%); /* Oscurecer ligeramente la imagen para mejor contraste */
+  overflow: hidden;
+}
+
+/* Video de fondo */
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Coloca el video detrás del contenido */
+  overflow: hidden;
+}
+
+.video-background iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que el video cubra toda la pantalla */
+  pointer-events: none; /* Evita interacciones con el video */
 }
 
 /* Capa de superposición para mejorar la legibilidad del texto */
@@ -21,8 +35,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.3); /* Fondo oscuro semitransparente */
-  z-index: -1; /* Aseguramos que la capa esté detrás del contenido */
+  background: rgba(0, 0, 0, 0.4); /* Fondo oscuro semitransparente */
+  z-index: 0; /* Coloca la capa sobre el video pero detrás del contenido */
 }
 
 /* Estilo para el contenedor de texto */
@@ -30,56 +44,108 @@
   text-align: center;
   padding: 2rem 3rem;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1); /* Fondo blanco semitransparente */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra sutil */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+  background: rgba(34, 34, 34, 0.8); /* Fondo oscuro semitransparente */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+  border: 2px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
   max-width: 75%; /* Limitar el tamaño del contenedor */
+  z-index: 1; /* Coloca el contenido sobre el video y la capa */
 }
 
 /* Estilos del título */
 .page-home-content h1 {
-  font-size: 2.5rem;
-  font-weight: 500;
+  font-size: 3rem;
+  font-weight: 600;
   margin-bottom: 1.2rem;
-  color: white; /* Gris oscuro para un toque elegante */
-  letter-spacing: 1.5px;
-  text-transform: capitalize;
-  font-family: 'Roboto', sans-serif;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Sombra suave */
+  color: #ffd700; /* Dorado, como el oro de Minecraft */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Minecraft', sans-serif; /* Usa una fuente estilo Minecraft si la tienes */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra suave */
 }
 
 /* Estilo del párrafo */
 .page-home-content p {
-  font-size: 1.1rem;
-  color: #fff;
+  font-size: 1.2rem;
+  color: #ffffff; /* Blanco */
   margin-bottom: 1.8rem;
-  line-height: 1.5;
-  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  font-family: 'Minecraft', sans-serif; /* Usa una fuente estilo Minecraft si la tienes */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra suave */
 }
 
-/* Estilos del botón */
-.page-home-content button {
-  background-color: #2d2d2d; /* Gris oscuro */
+/* Filtro de categorías */
+.category-filter {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.category-button {
+  background-color: #4CAF50; /* Verde, como la hierba de Minecraft */
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px; /* Bordes cuadrados, como los bloques de Minecraft */
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-button:hover {
+  background-color: #45a049; /* Verde más oscuro al pasar el mouse */
+  transform: translateY(-3px); /* Efecto sutil de elevación */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+/* Detalles de la categoría seleccionada */
+.category-details {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.category-details h2 {
+  font-size: 2rem;
+  color: #ffd700; /* Dorado */
+  margin-bottom: 1rem;
+}
+
+.category-details p {
+  font-size: 1.1rem;
+  color: #ffffff; /* Blanco */
+  margin-bottom: 1rem;
+}
+
+.category-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.category-details li {
+  font-size: 1rem;
+  color: #ffffff; /* Blanco */
+  margin-bottom: 0.5rem;
+}
+
+/* Botón de explorar */
+.explore-button {
+  background-color: #4CAF50; /* Verde, como la hierba de Minecraft */
   color: white;
   padding: 0.75rem 2rem;
-  border-radius: 30px; /* Bordes redondeados para un diseño más limpio */
+  border-radius: 8px; /* Bordes cuadrados, como los bloques de Minecraft */
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 500;
   border: none;
   transition: all 0.3s ease;
   cursor: pointer;
   outline: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  font-family: 'Roboto', sans-serif;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Minecraft', sans-serif; /* Usa una fuente estilo Minecraft si la tienes */
 }
 
-.page-home-content button:hover {
-  background-color: #ff7f50; /* Naranja suave */
+.explore-button:hover {
+  background-color: #45a049; /* Verde más oscuro al pasar el mouse */
   transform: translateY(-3px); /* Efecto sutil de elevación */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
-}
-
-.page-home-content button:active {
-  transform: translateY(1px); /* Efecto al hacer clic */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
 }

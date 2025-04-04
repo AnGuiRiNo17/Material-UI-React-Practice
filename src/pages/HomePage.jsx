@@ -6,61 +6,96 @@ import ContenidoComida from "./ContenidoComida";
 
 export default function HomePage() {
   const [textoBuscar, setTextoBuscar] = useState("");
-  const [data, setData] = useState({ meals: [] });
+  const [data, setData] = useState([]); // Datos combinados de ítems, mobs y alimentos
 
-  console.log("Contenido input", textoBuscar);
-
-  const obtenerComidaPorNombre = async () => {
+  // Función para buscar ítems, mobs y alimentos por nombre
+  const obtenerDatosPorNombre = async () => {
     const buscar = textoBuscar.trim();
 
     if (buscar === "") {
       alert("Campo vacío, pon algo mínimo");
     } else {
-      const requestOptions = {
-        method: "GET",
-        redirect: "follow",
-      };
-
       try {
-        const response = await fetch(
-          `https://www.themealdb.com/api/json/v1/1/search.php?s=${buscar}`,
-          requestOptions
+        // Obtener los datos de items.json
+        const itemsResponse = await fetch(
+          "https://raw.githubusercontent.com/PrismarineJS/minecraft-data/master/data/pc/1.16.1/items.json"
         );
-        const result = await response.json();
-        setData(result);
-        console.log("Resultados de la API:", result);
+        const items = await itemsResponse.json();
+
+        // Obtener los datos de mobs (entities.json)
+        const mobsResponse = await fetch(
+          "https://raw.githubusercontent.com/PrismarineJS/minecraft-data/master/data/pc/1.16.1/entities.json"
+        );
+        const mobs = await mobsResponse.json();
+
+        // Obtener los datos de alimentos (foods.json)
+        const foodsResponse = await fetch(
+          "https://raw.githubusercontent.com/PrismarineJS/minecraft-data/master/data/pc/1.16.1/foods.json"
+        );
+        const foods = await foodsResponse.json();
+
+        // Combinar todos los datos en una sola lista
+        const combinedData = [...items, ...mobs, ...foods];
+
+        // Filtrar los ítems que coincidan con el texto de búsqueda
+        const resultados = combinedData.filter((item) =>
+          item.displayName.toLowerCase().includes(buscar.toLowerCase())
+        );
+
+        setData(resultados);
+        console.log("Resultados de la API:", resultados);
       } catch (error) {
         console.error("Error al obtener los datos:", error);
       }
     }
   };
 
+  // Cargar datos iniciales (opcional)
   useEffect(() => {
-    const obtenerData = async () => {
+    const obtenerDataInicial = async () => {
       try {
-        const response = await fetch(
-          "https://www.themealdb.com/api/json/v1/1/search.php?s=beef"
+        // Obtener los datos de items.json
+        const itemsResponse = await fetch(
+          "https://raw.githubusercontent.com/PrismarineJS/minecraft-data/master/data/pc/1.16.1/items.json"
         );
-        const result = await response.json();
-        setData(result);
+        const items = await itemsResponse.json();
+
+        // Obtener los datos de mobs (entities.json)
+        const mobsResponse = await fetch(
+          "https://raw.githubusercontent.com/PrismarineJS/minecraft-data/master/data/pc/1.16.1/entities.json"
+        );
+        const mobs = await mobsResponse.json();
+
+        // Obtener los datos de alimentos (foods.json)
+        const foodsResponse = await fetch(
+          "https://raw.githubusercontent.com/PrismarineJS/minecraft-data/master/data/pc/1.16.1/foods.json"
+        );
+        const foods = await foodsResponse.json();
+
+        // Combinar todos los datos en una sola lista
+        const combinedData = [...items, ...mobs, ...foods];
+
+        // Mostrar los primeros 10 ítems por defecto
+        setData(combinedData.slice(0, 10));
       } catch (error) {
         console.error("Error al obtener los datos:", error);
       }
     };
-    obtenerData();
+    obtenerDataInicial();
   }, []);
 
+  // Manejar la tecla "Enter" para buscar
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      obtenerComidaPorNombre();
+      obtenerDatosPorNombre();
     }
   };
 
   return (
     <div>
       <h1 style={{ textAlign: "center", color: "Green" }}>
-        Encuentra tu Platillo Favorito
+        Encuentra Ítems, Mobs y Alimentos de Minecraft
       </h1>
       <Grid
         container
@@ -86,13 +121,13 @@ export default function HomePage() {
             >
               <InputBase
                 sx={{ ml: 2, flex: 1, fontSize: "18px" }}
-                placeholder="Buscar comida..."
+                placeholder="Buscar ítem, mob o alimento..."
                 value={textoBuscar}
                 onChange={(e) => setTextoBuscar(e.target.value)}
                 onKeyDown={handleKeyPress}
               />
               <IconButton
-                onClick={obtenerComidaPorNombre}
+                onClick={obtenerDatosPorNombre}
                 sx={{ p: "12px" }}
                 color="primary"
               >
@@ -103,7 +138,17 @@ export default function HomePage() {
         </Grid>
       </Grid>
 
-      <ContenidoComida data={data.meals} />
+      {/* Mostrar mensaje si no hay resultados */}
+      {data.length === 0 && (
+        <div style={{ textAlign: "center", margin: "20px 0" }}>
+          <p style={{ fontSize: "20px", color: "#ff0000" }}>
+            No se encontraron resultados.
+          </p>
+        </div>
+      )}
+
+      {/* Pasar los datos al componente ContenidoComida */}
+      <ContenidoComida data={data} />
     </div>
   );
 }
